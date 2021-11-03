@@ -1,4 +1,4 @@
-class Vacina {
+export class Vacina {
   id: number;
   id_fornecedor: number;
   id_tipo: number;

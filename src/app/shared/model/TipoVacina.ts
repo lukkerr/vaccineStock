@@ -1,4 +1,4 @@
-class TipoVacina {
+export class TipoVacina {
   id: number;
   nome: string;
   descricao: string;

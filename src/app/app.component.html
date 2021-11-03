@@ -1,1 +1,37 @@
-<div></div>
+<div class="screen" *ngIf="!usuarioLogado">
+  <div id="card-login">
+
+    <h3>VaccineStock</h3>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Usuário</mat-label>
+      <input #user matInput placeholder="Digite seu usuário">
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Senha</mat-label>
+      <input #pass matInput placeholder="Digite sua senha">
+    </mat-form-field>
+
+    <button mat-raised-button (click)="login(user.value.trim(), pass.value.trim())" color="primary">ENTRAR</button>
+  </div>
+</div>
+
+<div class="screen-logado" *ngIf="usuarioLogado">
+
+  <div class="menu-box" (mouseover)='showMenu(menu)' (mouseleave)='eraseMenu(menu)'>
+    <mat-icon>menu</mat-icon>
+
+    <ul #menu class="menu">
+      <li (click)="page = 'novoUsuario'" *ngIf="usuarioLogado.is_admin">Cadastrar Usuário</li>
+      <li (click)="page = 'fornecedor'">Fornecedores</li>
+      <li (click)="page = 'vacina'">Vacinas</li>
+    </ul>
+  </div>
+
+  <div class="page">
+    <app-novo-usuario *ngIf="page === 'novoUsuario'"></app-novo-usuario>
+    <app-fornecedor *ngIf="page === 'fornecedor'"></app-fornecedor>
+    <app-vacina *ngIf="page === 'vacina'"></app-vacina>
+  </div>
+</div>

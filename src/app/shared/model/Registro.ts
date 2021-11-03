@@ -1,4 +1,4 @@
-class Registro {
+export class Registro {
   id: number;
   id_vacina: number;
   id_usuario_entrada: number;
