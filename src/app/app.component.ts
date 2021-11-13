@@ -10,7 +10,7 @@ import { UsuarioService } from './shared/services/usuario/usuario.service';
 export class AppComponent {
 
   usuarioLogado: Usuario;
-  page: string = 'vacina';
+  page: string = 'fornecedor';
 
   constructor(private usuarioService: UsuarioService) {
     this.usuarioLogado = new Usuario();

@@ -1,1 +1,42 @@
-<p>fornecedor works!</p>
+<header>
+
+  <div class="row-add">
+    <h3>Fornecedores</h3>
+
+    <button mat-fab color="primary" aria-label="Adicionar novo fornecedor">
+      <mat-icon>add</mat-icon>
+    </button>
+  </div>
+
+  <mat-form-field class="input-pesquisar" appearance="fill">
+    <mat-label>Pesquisar por fornecedor:</mat-label>
+    <input #inputSearch (input)="search(inputSearch)" matInput placeholder="Digite o fornecedor desejado">
+  </mat-form-field>
+
+</header>
+
+<div class="content">
+  <mat-table #table [dataSource]="filterFornecedores">
+
+    <ng-container matColumnDef="id">
+      <mat-header-cell *matHeaderCellDef>Id</mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.id}} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="nome">
+      <mat-header-cell *matHeaderCellDef>Nome</mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.nome}} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="endereco">
+      <mat-header-cell *matHeaderCellDef>Endereço</mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.endereco}} </mat-cell>
+    </ng-container>
+
+    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+
+  </mat-table>
+
+  <p *ngIf="filterFornecedores.length === 0">Nenhum fornecedor encontrado.</p>
+</div>

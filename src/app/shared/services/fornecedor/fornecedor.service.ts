@@ -28,4 +28,10 @@ export class FornecedorService {
     })).pipe(first()).toPromise();
   }
 
+  async updateFornecedor(fornecedor: Fornecedor) : Promise<Fornecedor> {
+    return this.httpClient.put<Fornecedor>(this.URL_FORNECEDORES, fornecedor).pipe(catchError(() => {
+      this.log.error('Erro ao atualizar fornecedor');
+      return of(undefined);
+    })).pipe(first()).toPromise();
+  }
 }

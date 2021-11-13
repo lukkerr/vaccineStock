@@ -9,6 +9,7 @@ import { MatButtonToggleModule } from '@angular/material/button-toggle';
 import { FormsModule } from '@angular/forms';
 import { MatIconModule } from "@angular/material/icon";
 import { MatCardModule } from '@angular/material/card';
+import { MatTableModule } from '@angular/material/table';
 
 import { AppComponent } from './app.component';
 import { VacinaComponent } from './view/vacina/vacina.component';
@@ -31,7 +32,8 @@ import { NovoUsuarioComponent } from './view/novo-usuario/novo-usuario.component
     MatButtonToggleModule,
     FormsModule,
     MatIconModule,
-    MatCardModule
+    MatCardModule,
+    MatTableModule
   ],
   providers: [],
   bootstrap: [AppComponent]
